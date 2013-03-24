@@ -48,7 +48,7 @@
         </javac>
     </target>
 
-    <target name="package" depends="build" description="Deploy application as a WAR file">
+    <target name="package" depends="build" description="Packages a WAR file">
         <war destfile="webapps/${name}.war"
              webxml="${web.dir}/WEB-INF/web.xml">
             <fileset dir="${web.dir}">
