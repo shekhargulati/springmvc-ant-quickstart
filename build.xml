@@ -48,6 +48,15 @@
         </javac>
     </target>
 
+    <target name="package" depends="build" description="Deploy application as a WAR file">
+        <war destfile="webapps/${name}.war"
+             webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </war>
+    </target>
+
     <target name="deploy" depends="build" description="Deploy application">
         <copy todir="${deploy.path}/${name}" preservelastmodified="true">
             <fileset dir="${web.dir}">
